@@ -1,10 +1,10 @@
 
 from __future__ import absolute_import, unicode_literals
+
 import os
 
 from django import VERSION as DJANGO_VERSION
 from django.utils.translation import ugettext_lazy as _
-
 
 ######################
 # MEZZANINE SETTINGS #
@@ -249,6 +249,7 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     # "mezzanine.accounts",
     # "mezzanine.mobile",
+    'django_extensions',
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
