@@ -14,55 +14,20 @@ http://mezzanine.jupo.org/docs/
 ## Usage
 
 - basic usage
+    - modify "account_list.csv" file
+    
 ```
-# add user list
-python manage.py runscript create_users
-# run by test server
-python3 manage.py runserver
-```
-
-- modify user infomation
-  - to add or del user_tables
-
-```
-cat scripts/create_users.py
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, unicode_literals
-
-from django.contrib.auth.models import User
-
-# modify user table to add test user
-user_tables = [
-    {
-        "user": "john",
-        "mail": "john@example.com",
-        "pass": "john",
-    },
-    {
-        "user": "tom",
-        "mail": "tom@example.com",
-        "pass": "tom",
-    },
-    {
-        "user": "ops",
-        "mail": "ops@example.com",
-        "pass": "ops",
-    },
-    {
-        "user": "dev",
-        "mail": "dev@example.com",
-        "pass": "dev",
-    }
-]
-
-
-def run():
-    for user_info in user_tables:
-        if not User.objects.filter(username=user_info["user"]).exists():
-            user = User.objects.create_user(user_info["user"], user_info["mail"], user_info["pass"])
-            user.is_superuser = True
-            user.is_staff = True
-            user.save()
+(victim-app) kazu0716 MacBook-Pro-4 $ head -n 10 account_list.csv
+richard59,richard59@green.biz,@2~OMZ025
+melindajones,melindajones@lane.com,k9N?OPj76*fO
+scottaguirre,scottaguirre@parker.com,4w7^1}43HNJ
+fschmidt,fschmidt@osborn-hill.com,i%@9j~AJA^ja=O7
+jamesvictor,jamesvictor@gmail.com,/p2].HI|zU
+fyoung,fyoung@yahoo.com,"S,J|$<s7hE"
+danielrodriguez,danielrodriguez@hughes-robinson.com,"F7,8uM8o3_Rl~6)"
+juan28,juan28@patterson.com,DIj<5kK$W
+cookdestiny,cookdestiny@lozano.org,}Qz26=$wA~
+vsilva,vsilva@orr.org,z1^@G|MVH0m@Y
 ```
 
 - admin page(CMS)
